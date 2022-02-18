@@ -1,0 +1,9 @@
+{
+  "name": "Elemental Wars Staking",
+  "short_name": "EWARS",
+  "description": "Official Staking Elemental-Wars Web Site.",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#1a1a22"
+}

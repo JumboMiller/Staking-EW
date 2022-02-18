@@ -1,0 +1,384 @@
+@font-face{
+
+    font-family: 'TTNorms';
+    src:url(../fonts/TTNorms-Medium.ttf);
+    font-weight: normal;
+    font-style: normal;
+    
+}
+@font-face{
+  
+    font-family: 'TTNorms';
+    src:url(../fonts/TTNorms-ExtraBold.ttf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    font-family: 'TTNorms' , sans-serif;
+    
+    box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+.row{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+body{
+    min-height: 100vh;
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.front-div{
+  padding: 35px;
+}
+.google-logout{
+  width: 105px;
+  margin: 0  auto;
+  opacity: 0;
+  pointer-events: none;
+}
+.wallet-connection{
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+.connect-btn
+{
+    margin: 0 auto;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 30px;
+    width: 300px;
+    color: white;
+    text-align: center;
+    background-image: url(../img/button_bg.png);
+    background-size: cover;
+    background-position:center ;
+    background-repeat: no-repeat;
+    
+}
+
+.google-connection{
+  width: 280px;
+  margin: 0 auto;
+}
+.google-connection-btn
+{
+  width: 280px;
+}
+.user-info{
+  color: white;
+  padding: 15px;
+  border: 5px solid white;
+  opacity: 0;
+}
+.stake{
+  margin-left: auto;
+  margin-right: auto;
+	background-color:transparent;
+  width: 280px;
+  height: 40px;
+	border-radius:3px;
+  display:block;
+	cursor:pointer;
+  font-size:25px;
+}
+.stake:hover {
+	background-color:transparent;
+}
+.stake:active {
+	position:relative;
+	top:1px;
+}
+.Staked{
+
+	border:1px solid #d13434;
+  color: #d13434;
+}
+.Staking{
+	border:1px solid #348dd1;
+	color:#348dd1;
+}
+
+
+
+
+
+
+
+
+
+
+.nfts-container{
+  margin-top: 10px;
+}
+.staf-container
+{
+    margin: auto;
+    margin-top: 15px;
+    width: 340px;
+    height: 760px;
+    color: white;
+    background-color: #141618a6;
+    text-align: center;
+    border-radius: 20px;
+}
+.staf-img
+{
+    height: 300px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-decoration: none;
+}
+.staf-name
+{
+    font-size: 45px;
+    height: 110px;
+}
+.staf-about
+{
+    height: 200px;
+    font-size: 20px;
+}
+
+.visible{
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+.invisible{
+  display: none !important;
+}
+
+
+
+
+
+
+.Rare
+{
+    color: #184859;
+}
+.Mythical
+{
+    color: #481c44;
+}
+.Legendary
+{
+    color: #726318;
+}
+.Immortal
+{
+    color: #660b0c;
+}
+
+
+
+.Sunflower{
+  background-image: url(../img/wands/Rare/Sunflower\ Staff.png);
+}
+.Purge{
+  background-image: url(../img/wands//Rare/Purge\ Staff.png);
+}
+.Air{
+  background-image: url(../img/wands/Rare/Air\ Staff.png);
+}
+.Apprentices{
+  background-image: url(../img/wands/Rare/Apprentices\ Staff.png);
+}
+.Bleed{
+  background-image: url(../img/wands/Rare/Bleed\ Staff.png);
+}
+.Bomb{
+  background-image: url(../img/wands/Rare/Bomb\ Staff.png);
+}
+.Earth{
+  background-image: url(../img/wands/Rare/Earth\ Staff.png);
+}
+.Fire{
+  background-image: url(../img/wands/Rare/Fire\ Staff.png);
+}
+.Ice{
+  background-image: url(../img/wands/Rare/Ice\ Staff.png);
+}
+.Shield{
+  background-image: url(../img/wands/Rare/Shield\ Staff.png);
+}
+.Resistance{
+  background-image: url(../img/wands/Rare/Staff\ of\ Resistance.png);
+}
+.Time{
+  background-image: url(../img/wands/Rare/Staff\ of\ Time.png);
+}
+.Water{
+  background-image: url(../img/wands/Rare/Water\ Staff.png);
+}
+.Wind{
+  background-image: url(../img/wands/Rare/Wind\ Staff.png);
+}
+.Devourer{
+  background-image: url(../img/wands/Rare/Devourer\ Staff.png);
+}
+.Domination {
+  background-image: url(../img/wands/Rare/Domination\ Staff.png);
+}
+.Healer{
+  background-image: url(../img/wands/Rare/Healer_s\ Staff.png);
+}
+.Extraction{
+  background-image: url(../img/wands/Rare/Staff\ of\ Extraction.png);
+}
+.Vampirism{
+  background-image: url(../img/wands/Rare/Vampirism\ Staff.png);
+}
+.Lightning{
+  background-image: url(../img/wands/Mythical/Lightning\ Staff.png);
+}
+.Boost{
+  background-image: url(../img/wands/Mythical/Staff\ of\ Boost.png);
+}
+.Curse{
+background-image: url(../img/wands/Mythical/Staff\ of\ Curse.png);
+}
+.Eagle{
+  background-image: url(../img/wands/Mythical/Staff\ of\ Eagle.png);
+}
+.Fog{
+  background-image: url(../img/wands/Mythical/Staff\ of\ Fog.png);
+}
+.Summoning{
+  background-image: url(../img/wands/Mythical/Summoning\ Staff.png);
+}
+.Toad{
+  background-image: url(../img/wands/Mythical/Toad\ Staff.png);
+}
+.Crank{
+  background-image: url(../img/wands/Legendary/Crank\ staff.png);
+}
+.Recharge{
+  background-image: url(../img/wands/Legendary/Recharge\ Staff.png);
+}
+.Fossilization{
+  background-image: url(../img/wands/Legendary/Staff\ of\ Fossilization.png);
+}
+.Mastery{
+  background-image: url(../img/wands/Legendary/Staff\ of\ Mastery.png);
+}
+.Pain{
+  background-image: url(../img/wands/Legendary/Staff\ of\ Pain.png);
+}
+.Silence{
+  background-image: url(../img/wands/Legendary/Staff\ of\ Silence.png);
+}
+.dfdf{
+  background-image: url(../img/wands/Immortal/dfdf.png);
+}
+.Mirror{
+  background-image: url(../img/wands/Immortal/Magic\ Mirror\ Staff.png);
+}
+.Doubling{
+  background-image: url(../img/wands/Immortal/Staff\ of\ Doubling.png);
+}
+.Phoenix{
+  background-image: url(../img/wands/Immortal/Staff\ of\ the\ Phoenix.png);
+}
+
+
+
+
+
+
+.popup{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+.popactive{
+ opacity: 1;
+ pointer-events: all;
+}
+.popup-div{
+  
+  background-color:rgba(255,255,255,1);
+  width: auto;
+
+border-radius:10px;
+border:5px solid #348dd1;
+
+}
+.popup-div h3{
+  padding: 15px;
+  color:#348dd1;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+
