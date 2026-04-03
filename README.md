@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# Elemental Wars — NFT Staking Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based web interface for staking [Elemental Wars](https://elementalwars.io) NFTs on the WAX blockchain. Users authenticate with Google, connect a WAX wallet, and stake NFTs from the `elementalwar` AtomicAssets collection by transferring them to the staking account.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Google OAuth login for user identification
+- WAX wallet connection via **WAX Cloud Wallet** or **Anchor Wallet**
+- Fetches all Elemental Wars NFTs owned by the connected wallet
+- Displays NFT name, rarity, asset ID, and ability
+- One-click staking: transfers the NFT on-chain and records it via the backend API
+- Shows currently staked NFTs alongside unstaked ones
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+| Layer       | Technology                          |
+|-------------|-------------------------------------|
+| UI          | React 17, Bootstrap 5               |
+| Blockchain  | WAX (via `@waxio/waxjs`)            |
+| Wallet      | Anchor Link + Browser Transport     |
+| NFT Data    | AtomicAssets API                    |
+| Auth        | Google OAuth (`react-google-login`) |
+| HTTP        | Axios                               |
+| Build       | Create React App                    |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js ≥ 14
+- npm ≥ 6
+- A WAX mainnet account with Elemental Wars NFTs
+- A running instance of the [Elemental Wars staking backend](https://elementalwarsapi.xyz) (or a local equivalent)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Install
 
-### `npm run eject`
+```bash
+git clone https://github.com/JumboMiller/Staking-EW.git
+cd Staking-EW
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Configuration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The backend URL and Google OAuth client ID are currently hardcoded in `src/App.js`. Before running or deploying, update these values:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Variable         | Location in `src/App.js`                         | Description                        |
+|------------------|--------------------------------------------------|------------------------------------|
+| `server`         | `const server = "https://elementalwarsapi.xyz/"` | Backend API base URL               |
+| `clientId`       | `clientId="81457948776-..."`                     | Google OAuth 2.0 client ID         |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+> For a production setup, move these into environment variables using `.env` and `REACT_APP_` prefixes (CRA convention).
 
-## Learn More
+### Run (development)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Opens at [http://localhost:3000](http://localhost:3000). The page reloads on file changes.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+1. Open the app in a browser.
+2. Sign in with Google — this associates your email with staked NFTs.
+3. Connect your WAX wallet (WAX Cloud Wallet or Anchor).
+4. The app fetches all NFTs in the `elementalwar` collection owned by your wallet.
+5. Click **Staking** on any card to stake that NFT:
+   - The NFT is transferred on-chain to `3e4wo.wam`
+   - The staking record is posted to the backend API
+6. Already-staked NFTs are shown with an **Already Staked** label and are non-interactive.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+src/
+├── App.js          # Main component — auth, wallet, NFT fetch, stake logic
+├── Modal.js        # Reusable modal overlay for status messages
+├── css/
+│   └── App.css     # All custom styles (layout, NFT cards, buttons)
+├── fonts/          # Custom fonts
+├── img/            # Static images (NFT backgrounds, UI assets)
+└── index.js        # React entry point
 
-### Advanced Configuration
+public/
+└── index.html      # App shell; page title set to "Elemental Wars Staking"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+| Command           | Description                                      |
+|-------------------|--------------------------------------------------|
+| `npm start`       | Start development server at `localhost:3000`     |
+| `npm run build`   | Build optimized production bundle to `build/`    |
+| `npm test`        | Run tests in interactive watch mode              |
+| `npm run eject`   | Eject CRA config (irreversible)                  |
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Deployment
+
+Build the static assets and serve them from any static host (Netlify, Vercel, S3, etc.):
+
+```bash
+npm run build
+# Deploy the contents of build/ to your hosting provider
+```
+
+The app is a pure client-side SPA. No server-side rendering is required.
+
+> Ensure the backend API (`server` URL) is accessible from the deployment environment and that the Google OAuth client ID is authorized for the production origin.
+
+---
+
+## License
+
+<!-- TODO: Add license information -->
+
